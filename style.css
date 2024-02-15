@@ -1,0 +1,447 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Freight Big Pro;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+.main{
+    background: #000;
+}
+
+/* ------------------------ Loader --------------------- */
+
+.loader{
+    height: 100vh;
+    width: 100%;
+    background: #000;
+    color: white;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 5;
+    /* display: none; */
+}
+.yellow-div1{
+    height: 100vh;
+    width: 100vw;
+    background: #F5E41B;
+    position: absolute;
+    z-index: 8;
+}
+.yellow-div2{
+    height: 100vh;
+    width: 100vw;
+    background: #F5E41B;
+    position: absolute;
+    z-index: 7;
+}
+.loader h1{
+    position: relative;
+    z-index: 9;
+    display: none;
+}
+.loader video{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 6;
+}
+a{
+    display: flex;
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+    font-family: inter;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding: 5px ;
+    position: relative;
+}
+a::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    border-radius: 5px;
+    background: rgb(29, 29, 29);
+    transition: all 0.3s linear;
+    transform-origin: center;
+}
+a:hover::after{
+    width: 100%;
+}
+/* --------------------- Header ----------------------- */
+
+.header{
+    position: fixed;
+    top: -100%;
+    display: flex;
+    width: 100%;
+    background: transparent;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5vw 4vw;
+    z-index: 4;
+}
+.header svg path{
+    mix-blend-mode: difference;
+}
+.nav-right .n-r-btn{
+    height: 2vw;
+    width: 2vw;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+
+/* --------------------- page1 ----------------------- */
+.page1{
+    height: 100vh;
+    width: 100%;
+    background: #F5E41B;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+.page1 h1{
+    margin-top: 12%;
+}
+.loader h1,
+.page1 h1{
+    font-size: 7vw;
+    line-height: .7;
+    font-weight: 300;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+.loader h1 em,
+.page1 h1 em{
+    text-transform: lowercase;
+}
+.page1-footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+.btn-scroll-down{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* ------------------ page2 -------------------- */
+.page2{
+    height: 100vh;
+    width: 100%;
+    background: black;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: all 400ms ease-out
+}
+.elem{
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.moving{
+    background: #F5E41B;
+    width: 100%;
+    white-space: nowrap;
+    padding: 5px 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -40%) scaleY(0);
+    transition: all .5s ease;
+    opacity: 0;
+    overflow: hidden;
+}
+.moving::before{
+    content: "";
+    background: #F5E41B;
+    width: 35%;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8;
+    box-shadow: 10px 0px 30px 30px #F5E41B, -10px 0px 30px 30px #F5E41B;
+}
+.moving-in{
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: move;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.moving-in h5{
+    display: inline-block;
+    margin-right: 25px;
+    font-size: 17px;
+    font-family: inter;
+    font-weight: 100;
+    color: black;
+    opacity: 0;
+    transition: all 350ms ease-in;
+    transition-delay: .2s;
+}
+.elem:hover .moving{
+    transform: translate(0, -40%) scaleY(1);
+    opacity: 1;
+}
+.elem:hover .moving-in h5{
+    opacity: 1;
+}
+@keyframes move {
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+.elem h2{
+    font-size: 6vw;
+    text-transform: uppercase;
+    font-weight: 100;
+    letter-spacing: -2px;
+    z-index: 9;
+    position: relative;
+    line-height: .9;
+}
+.elem:hover h2{
+    font-style: italic;
+}
+
+/* ------------------ page3 ----------------- */
+
+
+.page3{
+    min-height: 100vh;
+    width: 100%;
+    background: rgb(241, 241, 241);
+}
+.img-container{
+    width: 100%;
+    padding: 2vw;
+    columns: 4;
+    column-gap: 20px;
+}
+.img-div{
+    height: auto;
+    width: 23vw;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    break-inside: avoid;
+}
+.img-div:hover .overlay{
+    opacity: 1;
+}
+.img-div:hover img{
+    transform: scale(1.03);
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background: #000000e5;
+    display: flex;
+    opacity: 0;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: all .3s linear;
+    z-index: 9;
+}
+.overlay p{
+    font-size: 3.5vw;
+    text-align: center;
+    line-height: .9;
+    color: white;
+    text-transform: uppercase;
+}
+.img-div img{
+    transition: all .3s linear;
+    max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ------------------ footer ------------------- */
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: rgb(241, 241, 241);
+    margin-top: -1px;
+}
+.backbutton{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+.backbutton a{
+    font-size: 14px;
+}
+.backbutton button{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.realfooter{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000;
+    padding: 50px;
+}
+.font-white{
+    color: #fff;
+}
+.font-white::after{
+    background: rgb(245, 243, 243);
+}
+.right-footer{
+    display: flex;
+    gap: 4vw;
+}
+
+
+@media (max-width: 1180px) {
+    a{
+        font-size: 15px;
+    }
+    .header{
+        padding: 4vw 6vw;
+    }
+    .page1{
+        padding: 0px 20px;
+    }
+    .page1 h1{
+        margin-top: 20%;
+    }
+    .loader h1,
+    .page1 h1{
+        font-size: 7vw;
+    }
+    .page1-footer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 0px;
+    }
+    .btn-scroll-down{
+        transform: scale(.8);
+        margin-left: 30px;
+    }
+    
+    .elem h2{
+        font-size: 9vw;
+    }
+    .img-container{
+        columns: 1;
+    }
+    .img-div{
+        width: 95%;
+        margin: 10px 0px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .img-container{
+        columns: 3;
+    }
+    .img-div{
+        width: 31vw;
+    }
+}
+
+
+
+
+@media (max-width: 400px) {
+    .header{
+        position: fixed;
+        top: -100%;
+        display: flex;
+        width: 100%;
+        background: transparent;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4vw 6vw;
+        z-index: 4;
+    }
+    .page1{
+        padding: 0px 20px;
+    }
+    .page1 h1{
+        margin-top: 38%;
+    }
+    .loader h1,
+    .page1 h1{
+        font-size: 14vw;
+    }
+    .page1-footer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 0px;
+    }
+    .btn-scroll-down{
+        transform: scale(.5);
+        margin-left: 30px;
+    }
+    
+    .elem h2{
+        font-size: 15vw;
+    }
+    .img-container{
+        columns: 1;
+    }
+    .img-div{
+        width: 95%;
+        margin: 10px 0px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+
+.realfooter{
+    flex-direction: column;
+}
+}
+
